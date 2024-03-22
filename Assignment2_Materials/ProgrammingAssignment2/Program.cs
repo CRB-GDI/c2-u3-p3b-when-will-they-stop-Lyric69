@@ -22,14 +22,38 @@ namespace ProgrammingAssignment2
 		/// <param name="args">command-line args</param>
 		static void Main(string[] args)
 		{
+		
+			Console.WriteLine("pick your numbers");
 			// loop while there's more input
-			string input = Console.ReadLine();
+
+            string input = Console.ReadLine();
 			while (input[0] != 'q')
 			{
+
+
 				// extract input values from string
 				BuildLinkedListFromString(input);
 
 				// Add your code between this comment
+				int currInt;
+				currInt = GetValue();
+				int count;
+				count = 0;
+				int sum;
+				sum = 0;
+
+				while (currInt != -1)
+				{
+					count++;
+					sum = sum + count;
+                    currInt = GetValue();
+                }
+
+				if (currInt == -1)
+				{
+					Console.WriteLine(count + " " + sum);
+				}
+
 				// and the comment below. You can of
 				// course add more space between the
 				// comments as needed
@@ -41,7 +65,7 @@ namespace ProgrammingAssignment2
 				input = Console.ReadLine();
 			}
 		}
-
+		
 		/// <summary>
 		/// Builds a linked list of input values from provided string
 		/// </summary>
@@ -77,21 +101,21 @@ namespace ProgrammingAssignment2
 		static int GetValue()
 		{
 			// check for empty list
-			int value;
+			int GetValue;
 			if (values.Count > 0)
 			{
 				// save value at front of list
-				value = values.Head.Value;
+				GetValue = values.Head.Value;
 
 				// move along list
-				values.Remove(value);
+				values.Remove(GetValue);
 			}
 			else
 			{
 				// empty list
-				value = -1;
+				GetValue = -1;
 			}
-			return value;
+			return GetValue;
 		}
 	}
 }
